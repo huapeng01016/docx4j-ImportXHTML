@@ -64,9 +64,9 @@ public class ConvertInXHTMLFile {
     public static void main(String[] args) throws Exception {
         
     	
-        String inputfilepath = System.getProperty("user.dir") + "/somedir/some.html";    	
+        String inputfilepath = "E:/projects/mark2docx/examples/ex1.html";    	
 //        String baseURL = "file:///C:/Users/jharrop/git/docx4j-ImportXHTML/somedir/";
-        String baseURL = "file:///C:/Users/jharrop/git/docx4j-ImportXHTML/";
+        String baseURL = "file:///E:/projects/mark2docx/examples/";
 
         
         String stringFromFile = FileUtils.readFileToString(new File(inputfilepath), "UTF-8");
@@ -89,8 +89,8 @@ public class ConvertInXHTMLFile {
         XHTMLImporterImpl.addFontMapping("Century Gothic", rfonts);
         
         // Create an empty docx package
-//		WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.createPackage();
-		WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.load(new File(System.getProperty("user.dir") + "/styled.docx"));
+		WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.createPackage();
+//		WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.load(new File(System.getProperty("user.dir") + "/styled.docx"));
 
 		
 		NumberingDefinitionsPart ndp = new NumberingDefinitionsPart();
@@ -110,7 +110,7 @@ public class ConvertInXHTMLFile {
 //		System.out.println(
 //				XmlUtils.marshaltoString(wordMLPackage.getMainDocumentPart().getNumberingDefinitionsPart().getJaxbElement(), true, true));
 		
-		wordMLPackage.save(new java.io.File(System.getProperty("user.dir") + "/OUT_from_XHTML.docx") );
+		wordMLPackage.save(new java.io.File("E:/projects/mark2docx/examples/ex1_out.docx") );
       
   }
 	

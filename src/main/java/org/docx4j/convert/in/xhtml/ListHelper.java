@@ -40,10 +40,10 @@ import org.docx4j.model.listnumbering.ListNumberingDefinition;
 import org.docx4j.model.properties.paragraph.Indent;
 import org.docx4j.openpackaging.exceptions.InvalidOperationException;
 import org.docx4j.openpackaging.parts.WordprocessingML.NumberingDefinitionsPart;
-import org.docx4j.org.xhtmlrenderer.css.constants.CSSName;
-import org.docx4j.org.xhtmlrenderer.css.style.derived.LengthValue;
-import org.docx4j.org.xhtmlrenderer.layout.Styleable;
-import org.docx4j.org.xhtmlrenderer.render.BlockBox;
+import com.openhtmltopdf.css.constants.CSSName;
+import com.openhtmltopdf.css.style.derived.LengthValue;
+import com.openhtmltopdf.layout.Styleable;
+import com.openhtmltopdf.render.BlockBox;
 import org.docx4j.wml.CTLongHexNumber;
 import org.docx4j.wml.Jc;
 import org.docx4j.wml.Lvl;
@@ -353,7 +353,7 @@ public class ListHelper {
 //			log.debug("+padding-left: " + totalPadding);
 
 			LengthValue margin = (LengthValue)bb.getStyle().valueByName(CSSName.MARGIN_LEFT);
-			totalPadding +=Indent.getTwip(margin.getCSSPrimitiveValue());
+			totalPadding += Indent.getTwip(margin.getCSSPrimitiveValue()); 
 
 //			log.debug("+margin-left: " + totalPadding);
 			

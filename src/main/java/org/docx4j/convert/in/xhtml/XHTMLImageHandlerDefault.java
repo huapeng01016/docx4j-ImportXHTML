@@ -8,8 +8,6 @@ import org.docx4j.dml.wordprocessingDrawing.Inline;
 import org.docx4j.jaxb.Context;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 import org.docx4j.openpackaging.parts.WordprocessingML.BinaryPartAbstractImage;
-import org.docx4j.org.xhtmlrenderer.docx.Docx4JFSImage;
-import org.docx4j.org.xhtmlrenderer.docx.Docx4jUserAgent;
 import org.docx4j.wml.CTTblCellMar;
 import org.docx4j.wml.CTTblPrBase;
 import org.docx4j.wml.P;
@@ -28,7 +26,7 @@ public class XHTMLImageHandlerDefault implements XHTMLImageHandler {
 	public int getMaxWidth() {
 	    return maxWidth;
 	}
-	@Override
+	
 	public void setMaxWidth(int maxWidth, String tableStyle) {
 	    this.maxWidth = maxWidth;
 	    this.tableStyle = tableStyle;
@@ -98,7 +96,7 @@ public class XHTMLImageHandlerDefault implements XHTMLImageHandler {
 						url = "file:/" + url;
 					}
 					
-					Docx4JFSImage docx4JFSImage = docx4jUserAgent.getDocx4JImageResource(url);
+					Docx4jFSImage docx4JFSImage = docx4jUserAgent.getDocx4JImageResource(url);
 					if (docx4JFSImage == null) {						
 						// in case of wrong URL - docx4JFSImage will be null
 						log.error("Couldn't fetch " + url);

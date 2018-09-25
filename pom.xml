@@ -55,7 +55,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+  		<!-- Define the version of OPEN HTML TO PDF in the properties section of your POM. -->  	       
+  		<openhtml.version>0.0.1-RC15</openhtml.version>
+  	</properties>
+
 	  	
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -293,22 +296,7 @@
 		</plugins>
 	</reporting>
 	
-	<dependencies>
-	
-		<dependency>
-			<groupId>org.docx4j</groupId>
-			<artifactId>xhtmlrenderer</artifactId><!--  supports xhtml import -->
-			<version>3.0.0</version>
-			<!-- currently itext is required (fonts for width calculations)
-				<exclusions>
-					<exclusion>
-						<groupId>com.lowagie</groupId>
-						<artifactId>itext</artifactId>
-					</exclusion>
-				</exclusions>
-				 -->
-		</dependency>
-
+	<dependencies>	
 		<dependency>
 		  <groupId>org.docx4j</groupId>
 		  <artifactId>docx4j</artifactId>
@@ -335,6 +323,113 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+
+<!-- 			
+  	<dependency>
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-core</artifactId>
+  		<version>${openhtml.version}</version>
+  	</dependency>
+-->
+  	
+  	<dependency>
+  		<!-- Required for PDF output. -->
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-pdfbox</artifactId>
+  		<version>${openhtml.version}</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>com.openhtmltopdf</groupId>
+  				<artifactId>openhtmltopdf-core</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	
+  	<dependency>
+  		<!-- Required for image output only. -->  	
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-java2d</artifactId>
+  		<version>${openhtml.version}</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>com.openhtmltopdf</groupId>
+  				<artifactId>openhtmltopdf-core</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	
+  	<dependency>
+  		<!-- Optional, leave out if you do not need right-to-left or bi-directional text support. -->
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-rtl-support</artifactId>
+  		<version>${openhtml.version}</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>com.openhtmltopdf</groupId>
+  				<artifactId>openhtmltopdf-core</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	
+  	<dependency>
+        <!-- Optional, leave out if you do not need HTML5 parsing support. -->
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-jsoup-dom-converter</artifactId>
+  		<version>${openhtml.version}</version>
+  	</dependency>
+  	 
+  	<dependency>
+  	    <!-- Optional, leave out if you do not need logging via slf4j. -->
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-slf4j</artifactId>
+  		<version>${openhtml.version}</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>com.openhtmltopdf</groupId>
+  				<artifactId>openhtmltopdf-core</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	
+  	<dependency>
+  	    <!-- Optional, leave out if you do not need logging via log4j. -->
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-log4j</artifactId>
+  		<version>${openhtml.version}</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>com.openhtmltopdf</groupId>
+  				<artifactId>openhtmltopdf-core</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+
+  	<dependency>
+  	    <!-- Optional, leave out if you do not need SVG support. -->
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-svg-support</artifactId>
+  		<version>${openhtml.version}</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>com.openhtmltopdf</groupId>
+  				<artifactId>openhtmltopdf-core</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+
+  	<dependency>
+  	    <!-- Optional, leave out if you do not need MathML support. -->
+  	    <!-- Introduced in RC-13. -->
+  		<groupId>com.openhtmltopdf</groupId>
+  		<artifactId>openhtmltopdf-mathml-support</artifactId>
+  		<version>${openhtml.version}</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>com.openhtmltopdf</groupId>
+  				<artifactId>openhtmltopdf-core</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
 	 	
 	</dependencies>
 
